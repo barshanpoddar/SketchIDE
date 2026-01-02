@@ -55,11 +55,11 @@ class _FrameRowState extends State<FrameRow> {
       onWidgetDragUpdate: widget.onWidgetDragUpdate,
       onWidgetDragEnd: widget.onWidgetDragEnd,
       onWidgetLongPress: (widget) {
-        print('🎯 FRAME ROW LONG PRESS: ${widget.id}');
+        debugPrint('🎯 FRAME ROW LONG PRESS: ${widget.id}');
         // Handle long press feedback
       },
       onDragStateChanged: (isDragging) {
-        print('🎯 FRAME ROW DRAG STATE: ${widget.widgetBean.id} - $isDragging');
+        debugPrint('🎯 FRAME ROW DRAG STATE: ${widget.widgetBean.id} - $isDragging');
       },
     );
   }
@@ -100,10 +100,10 @@ class _FrameRowState extends State<FrameRow> {
       behavior: HitTestBehavior.opaque,
       onTap: () {
         // SKETCHWARE PRO STYLE: Handle widget selection on tap
-        print('🎯 FRAME ROW TAP: ${widget.widgetBean.id}');
+        debugPrint('🎯 FRAME ROW TAP: ${widget.widgetBean.id}');
         if (widget.selectionService != null) {
           widget.selectionService!.selectWidget(widget.widgetBean);
-          print(
+          debugPrint(
               '🎯 SELECTION SERVICE: Widget ${widget.widgetBean.id} selected');
         }
         _notifyWidgetSelected();
@@ -134,10 +134,10 @@ class _FrameRowState extends State<FrameRow> {
         child: Container(
           key: _widgetKey,
           // SKETCHWARE PRO STYLE: Use exact width/height like ItemLinearLayout
-          width: width != null && width! > 0
+          width: width != null && width > 0
               ? width
               : null, // ✅ Handle nullable width
-          height: height != null && height! > 0
+          height: height != null && height > 0
               ? height
               : null, // ✅ Handle nullable height
           // SKETCHWARE PRO STYLE: Minimum size like ItemLinearLayout (32dp)
@@ -298,7 +298,7 @@ class _FrameRowState extends State<FrameRow> {
 
   /// SKETCHWARE PRO STYLE: Handle touch start
   void _handleTouchStart(Offset position) {
-    print('🎯 FRAME ROW TOUCH START: ${widget.widgetBean.id}');
+    debugPrint('🎯 FRAME ROW TOUCH START: ${widget.widgetBean.id}');
     widget.touchController
         ?.handleTouchStart(widget.widgetBean, position, _widgetKey);
   }
@@ -310,7 +310,7 @@ class _FrameRowState extends State<FrameRow> {
 
   /// SKETCHWARE PRO STYLE: Handle touch end
   void _handleTouchEnd(Offset position) {
-    print('🎯 FRAME ROW TOUCH END: ${widget.widgetBean.id}');
+    debugPrint('🎯 FRAME ROW TOUCH END: ${widget.widgetBean.id}');
     widget.touchController?.handleTouchEnd(position);
   }
 
