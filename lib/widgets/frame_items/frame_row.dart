@@ -374,17 +374,17 @@ class _FrameRowState extends State<FrameRow> {
 
   /// SKETCHWARE PRO STYLE: Handle touch cancel
   void _handleTouchCancel() {
-    print('🎯 FRAME ROW TOUCH CANCEL: ${widget.widgetBean.id}');
+    debugPrint('🎯 FRAME ROW TOUCH CANCEL: ${widget.widgetBean.id}');
     widget.touchController?.handleTouchCancel();
   }
 
   /// SKETCHWARE PRO STYLE: Notify parent about widget selection
   void _notifyWidgetSelected() {
-    print('🚀 NOTIFYING WIDGET SELECTION: ${widget.widgetBean.id}');
+    debugPrint('🚀 NOTIFYING WIDGET SELECTION: ${widget.widgetBean.id}');
     if (widget.touchController != null) {
       widget.touchController!.handleWidgetTap(widget.widgetBean);
     } else {
-      print('🚀 WARNING: touchController is null!');
+      debugPrint('🚀 WARNING: touchController is null!');
     }
   }
 }
